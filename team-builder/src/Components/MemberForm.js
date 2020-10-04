@@ -3,24 +3,28 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const MemberForm = (props) => {
+    console.log("props from MF-->" , props)
     const[person, setPerson]=useState({
-        name:props.name,
-        role: props.role,
-        email: props.email
+        id: Date.now(),
+        name:"",
+        role: "",
+        email: ""
     })
     const handleChanges = (event) => {
-        const newStateObj = {...person, [event.target.name]:event.target.value}
-        setPerson(newStateObj)
+        setPerson({...person, [event.target.name]: event.target.value}) 
+        
     }
     const submitPerson = event => {
         event.preventDefault()
         props.addNewMember(person)
         setPerson({
+            id: Date.now(),
             name:'',
             role: '',
             email: ''
         })
     }
+    console.log("person on MF-->" , person)
     return (
         <form onSubmit={submitPerson}>
             <lable htmlFor='name'>Name</lable>
@@ -45,10 +49,11 @@ const MemberForm = (props) => {
                 id='email'
                 type='email'
                 placeholder='Enter Email'
-                name='Email'
+                name='email'
                 value={person.email}
                 onChange={handleChanges}
             />
+            <button type="submit">Add Team Member</button>
         </form>
     )
 }

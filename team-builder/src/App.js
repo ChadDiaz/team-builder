@@ -13,20 +13,16 @@ const startData = [{
 }]
 
 const App = () => {
-  const [member, setMember] = useState([startData])
+  const [member, setMember] = useState([])
   console.log("this is member" , member)
 
-  const addNewMember = member => {
-    const newMember = {
-      id: Date.now(),
-      name: member.name,
-      role: member.role,
-      email: member.email
-    }
-    setMember([...member, newMember])
+  const addNewMember = teamMember => {
+    
+    setMember([...member, teamMember])
   }
   return (
     <div>
+      <h1>Team Members</h1>
       <MemberForm addNewMember={addNewMember}/>
       <Member member={member} />
     </div>
