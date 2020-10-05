@@ -5,27 +5,41 @@ import styled from 'styled-components'
 import MemberForm from './Components/MemberForm';
 import Member from './Components/Member';
 
-const startData = [{
+const AppDiv = styled.div`
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  background-image: linear-gradient(-315deg, #7afcff 40%,#41b6d7 100%);
+  padding: 32px;
+  letter-spacing: 2px
+`
+
+const App = () => {
+  const [member, setMember] = useState([{
     id: 1,
     name:"Chad Diaz",
     role: "Web Dev", 
     email: "chad.diazmd@gmail.com"
-}]
+}
 
-const App = () => {
-  const [member, setMember] = useState([])
-  console.log("this is member" , member)
+  ])
+  // console.log("this is member" , member)
+
+  const deleteMember = (index) => {
+    const originalMember = [...member];
+    originalMember.splice(index, 1);
+    setMember(originalMember)
+  }
 
   const addNewMember = teamMember => {
-    
     setMember([...member, teamMember])
   }
+
   return (
-    <div>
+    <AppDiv>
       <h1>Team Members</h1>
       <MemberForm addNewMember={addNewMember}/>
-      <Member member={member} />
-    </div>
+      <Member member={member} deleteMember={deleteMember}/>
+    </AppDiv>
   )
 }
 
