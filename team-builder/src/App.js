@@ -9,8 +9,8 @@ const AppDiv = styled.div`
   font-family: 'Patrick Hand', cursive;
   text-align: center;
   background-image: linear-gradient(-315deg, #7afcff 40%,#41b6d7 100%);
-  padding: 32px;
-  letter-spacing: 2px
+  padding: 25px;
+  letter-spacing: 1px
 `
 
 const App = () => {
@@ -34,11 +34,16 @@ const App = () => {
     setMember([...member, teamMember])
   }
 
+  const memberToEdit = editMember => {
+
+    setMember({...member, editMember})
+  }
+
   return (
     <AppDiv>
       <h1>Team Members</h1>
-      <MemberForm addNewMember={addNewMember}/>
-      <Member member={member} deleteMember={deleteMember}/>
+      <MemberForm addNewMember={addNewMember} />
+      <Member member={member} deleteMember={deleteMember} memberToEdit={memberToEdit}/>
     </AppDiv>
   )
 }
