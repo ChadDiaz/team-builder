@@ -71,7 +71,7 @@ const MemberForm = (props) => {
         setPerson({
             id: Date.now(),
             name:'',
-            role: "Choose one",
+            role: 'Choose One',
             email: ''
         })
     }
@@ -89,7 +89,7 @@ const MemberForm = (props) => {
             />
             <Label htmlFor='role'>Role</Label>
             <Select id='role' name="role" onChange={handleChanges}>
-                <option>--Choose one--</option>
+                <option value ="Choose One" selected>--Choose one--</option>
                 <option value="Project Manager">Project Manager</option>
                 <option value="Backend Engineer">Backend Engineer</option>
                 <option value="Frontend Engineer">Frontend Engineer</option>

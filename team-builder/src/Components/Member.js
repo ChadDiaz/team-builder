@@ -39,6 +39,12 @@ text-align: left;
 `
 
 const Member = (props) => {
+
+    
+    const handleEdit= (index) => {
+        props.memberToEdit(index)
+    }
+
     const handleDelete = (index) => {
         props.deleteMember(index)
     }
@@ -50,6 +56,7 @@ const Member = (props) => {
                     <p>{member.role}</p>
                     <p>{member.email}</p>
                     <Button onClick={(event) => handleDelete(index)}>Delete Team Member</Button>
+                    <Button onClick={(event) => handleEdit(index)}>Edit Team Member</Button>
                 </MemberDiv> 
             ))}                           
         </MemberList>

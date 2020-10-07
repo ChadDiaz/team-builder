@@ -19,10 +19,15 @@ const App = () => {
     name:"Chad Diaz",
     role: "Web Dev", 
     email: "chad.diazmd@gmail.com"
-}
+}])
 
-  ])
-  // console.log("this is member" , member)
+
+  const memberToEdit = (e) => {
+    const originalMember= [...member];
+    setMember({originalMember, [e.target.name]: e.target.value})
+  }
+  
+  
 
   const deleteMember = (index) => {
     const originalMember = [...member];
@@ -34,10 +39,7 @@ const App = () => {
     setMember([...member, teamMember])
   }
 
-  const memberToEdit = editMember => {
-
-    setMember({...member, editMember})
-  }
+ 
 
   return (
     <AppDiv>
